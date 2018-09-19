@@ -3,6 +3,7 @@ package com.teamsankya.hibernate.dto;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -12,10 +13,8 @@ import javax.persistence.Table;
 @Table(name="empp_address")
 public class EmployeeAddressBean implements Serializable
 {
-	@Id
-	@OneToOne
-	@JoinColumn(name="id",referencedColumnName="id")
-	private EmployeeBean empBean;
+	@EmbeddedId
+	private EmployeeAddressPk empAddressPk;
 	@Column(name="pincode")
 	private int pincode;
 	@Column(name="address1")
@@ -29,19 +28,21 @@ public class EmployeeAddressBean implements Serializable
 	@Override
 	public String toString() 
 	{
-		return "EmployeeAddressBean [eid=" + empBean.getId() + ", pincode=" 
-	+ pincode  +" , address1= "+ address1  +" , address2= "+ address2
-	+ " , city= "+ city  + "]";
+		return "EmployeeAddressBean [eid=" + empAddressPk.getEmpBean().getId()
+				+ ", pincode=" + pincode  +" , address1= "+ address1 
+				+" , address2= "+ address2 + " , city= "+ city  + "]";
 	}
 	
 	
 	
-	public EmployeeBean getEmpBean() {
-		return empBean;
+	
+	public EmployeeAddressPk getEmpAddressPk() {
+		return empAddressPk;
 	}
-	public void setEmpBean(EmployeeBean empBean) {
-		this.empBean = empBean;
+	public void setEmpAddressPk(EmployeeAddressPk empAddressPk) {
+		this.empAddressPk = empAddressPk;
 	}
+
 	public int getPincode() {
 		return pincode;
 	}

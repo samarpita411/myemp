@@ -21,5 +21,6 @@
 		<mapping class="com.teamsankya.hibernate.dto.EmployeeContactBean"/>
 		<mapping class="com.teamsankya.hibernate.dto.EmployeeAddressBean"/>
 		<mapping class="com.teamsankya.hibernate.dto.EmployeeTaskBean"/>
+		<mapping class="com.teamsankya.hibernate.dto.DepartmentBean"/>
 	</session-factory>
 </hibernate-configuration>
